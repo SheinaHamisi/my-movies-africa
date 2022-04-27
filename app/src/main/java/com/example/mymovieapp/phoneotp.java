@@ -1,5 +1,6 @@
 package com.example.mymovieapp;
 import android.content.Intent;
+
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
@@ -20,7 +21,7 @@ import com.google.firebase.auth.PhoneAuthProvider;
 import java.util.concurrent.TimeUnit;
 
 
-public class MainActivity extends AppCompatActivity {
+public class phoneotp extends AppCompatActivity {
 
 
     // variable for FirebaseAuth class
@@ -96,7 +97,7 @@ public class MainActivity extends AppCompatActivity {
 
                     // displaying a toast message.
 
-                    Toast.makeText(MainActivity.this, "Please enter a valid phone number.", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(phoneotp.this, "Please enter a valid phone number.", Toast.LENGTH_SHORT).show();
 
                 } else {
 
@@ -133,7 +134,7 @@ public class MainActivity extends AppCompatActivity {
 
                     // a message to user to enter OTP
 
-                    Toast.makeText(MainActivity.this, "Please enter OTP", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(phoneotp.this, "Please enter OTP", Toast.LENGTH_SHORT).show();
 
                 } else {
 
@@ -172,7 +173,7 @@ public class MainActivity extends AppCompatActivity {
 
                             // we are sending our user to new activity.
 
-                            Intent i = new Intent(MainActivity.this, PhoneOtp2.class);
+                            Intent i = new Intent(phoneotp.this, phoneotp.class);
 
                             startActivity(i);
 
@@ -184,7 +185,7 @@ public class MainActivity extends AppCompatActivity {
 
                             // displaying an error message to the user.
 
-                            Toast.makeText(MainActivity.this, task.getException().getMessage(), Toast.LENGTH_LONG).show();
+                            Toast.makeText(phoneotp.this, task.getException().getMessage(), Toast.LENGTH_LONG).show();
 
                         }
 
@@ -312,7 +313,7 @@ public class MainActivity extends AppCompatActivity {
 
             // displaying error message with firebase exception.
 
-            Toast.makeText(MainActivity.this, e.getMessage(), Toast.LENGTH_LONG).show();
+            Toast.makeText(phoneotp.this, e.getMessage(), Toast.LENGTH_LONG).show();
 
         }
 
