@@ -28,13 +28,13 @@
             android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/description"
+            android:id="@+id/message"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/title"
             android:layout_marginLeft="10dp"
             android:layout_toRightOf="@id/app_logo"
-            android:text="This is description"
+            android:text="This is a message"
             android:textSize="20sp" />
     </RelativeLayout>
 
