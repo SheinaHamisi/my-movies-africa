@@ -11,6 +11,7 @@ import android.widget.Toast;
 import com.example.mymovieapp.databinding.ActivityMainBinding;
 
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 import java.util.Random;
 
@@ -35,11 +36,10 @@ public class MainActivity extends AppCompatActivity {
         binding.randomize.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Random random = new Random();
-                Integer randomElement = givenList.get(random.nextInt(givenList.size()));
-//                binding.imageView.setImageResource(randomElement);
-//                binding.imageView2.setImageResource(randomElement);
-                Toast.makeText(MainActivity.this,randomElement.toString(),Toast.LENGTH_SHORT).show();
+                Collections.shuffle(givenList);
+                MoviesRecycler adapter = new MoviesRecycler(MainActivity.this,givenList);
+                recyclerView.setAdapter(adapter);
+                recyclerView.setLayoutManager(new LinearLayoutManager(MainActivity.this));
             }
         });
     }
