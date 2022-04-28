@@ -2,4 +2,14 @@
     <string name="app_name">MyMovieApp</string>
     <string name="submit">submit</string>
     <string name="surprise">Surprise !</string>
+    <string name="description">Description</string>
+    <string name="buy">Buy</string>
+    <string name="rent">rent</string>
+
+    <string name="movie1">Superhero - UPENDO HERO, and the UKOO FLANI Hip‐Hop Clan, set Forth from sunny Nairobi to wintery Berlin, on a Social and Cultural quest to Understand the Impact of Gentrification and the Privatisation of Public Spaces on Public Art. </string>
+    <string name="movie2">Set in Kenya’s Rift Valley, in the Shadow of the Sleeping Warrior mountain, this is the True Story of Africas first female Lacrosse Team, and their Journey across the Globe to the 2019 World Championships. Transformed by the Experience, these Determined young Women experience Heartbreak and Joy, but Never give up on their Dreams.</string>
+    <string name="movie3">Jo (Stycie Waweru), a witty 9 year-old terminally ill Girl is taken back to her rural Village to Live out the Rest of her short Life. Her only Comfort, during these dull Times, are her Dreams of being a Superhero</string>
+    <string name="movie4">After years of patiently Working in the City and Saving money, so that he could one day go Back to his rural Home; Kwami (Bernard Irungu) one day Makes for Upcountry with Nothing except a Bounty on his Head, and a Trail of Murder behind him</string>
+    <string name="movie5">Sanjay (Vikrant Massey) - a Rajput from Jahanabad, is in love with Aditi (Kriti Kharbanda)- a Jat from Jaipur. They want to get Married, but Dont want to Hurt their Families. So they Plan to get Married, by Arranging a Fake set of Parents</string>
+    <string name="movie6">A Compilation of eight Short Films about Superheroes, by young Kenyan Filmmakers, that was featured on the 3rd Edition of MyMovies.Africas Monthly Watch Party via ZOOM, entitled #TheGreatNightIn.</string>
 </resources>

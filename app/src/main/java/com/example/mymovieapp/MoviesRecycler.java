@@ -13,12 +13,14 @@ import java.util.List;
 
 public class MoviesRecycler extends RecyclerView.Adapter<MoviesRecycler.MyViewHolder> {
     List<Integer> image;
+    List<Integer> description;
     Context context;
     private final detailInterface DetailInterface;
 
-    public MoviesRecycler(Context context,List<Integer> image,detailInterface DetailInterfaces) {
+    public MoviesRecycler(Context context,List<Integer> image,List<Integer> description,detailInterface DetailInterfaces) {
         this.image = image;
         this.context = context;
+        this.description  = description;
         this.DetailInterface= DetailInterfaces;
     }
 
