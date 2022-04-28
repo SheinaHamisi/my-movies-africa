@@ -12,13 +12,14 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.List;
 
 public class MoviesRecycler extends RecyclerView.Adapter<MoviesRecycler.MyViewHolder> {
-    //private int[] image;
     List<Integer> image;
     Context context;
+    private final detailInterface DetailInterface;
 
-    public MoviesRecycler(Context context,List<Integer> image) {
+    public MoviesRecycler(Context context,List<Integer> image,detailInterface DetailInterfaces) {
         this.image = image;
         this.context = context;
+        this.DetailInterface= DetailInterfaces;
     }
 
     @NonNull
@@ -26,7 +27,7 @@ public class MoviesRecycler extends RecyclerView.Adapter<MoviesRecycler.MyViewHo
     public MoviesRecycler.MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater inflater = LayoutInflater.from(context);
         View view = inflater.inflate(R.layout.random,parent,false);
-        return new MoviesRecycler.MyViewHolder(view);
+        return new MoviesRecycler.MyViewHolder(view,DetailInterface);
     }
 
     @Override
@@ -41,9 +42,23 @@ public class MoviesRecycler extends RecyclerView.Adapter<MoviesRecycler.MyViewHo
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
         ImageView moviesImage;
-        public MyViewHolder(@NonNull View itemView) {
+        public MyViewHolder(@NonNull View itemView,detailInterface DetailInterfaces) {
             super(itemView);
             moviesImage = itemView.findViewById(R.id.movieImage);
+
+            itemView.findViewById(R.id.movieImage).setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    if(DetailInterfaces != null){
+                        int itemPosition = getAdapterPosition();
+
+                        if(itemPosition != RecyclerView.NO_POSITION){
+                            DetailInterfaces.onDetailButtonClick(itemPosition);
+                        }
+                    }
+                }
+            });
+
         }
     }
 }
