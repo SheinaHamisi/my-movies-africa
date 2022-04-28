@@ -36,7 +36,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
 
     @Override
     public int getItemCount() {
-        return notificationName.size();//size of disease name
+        return notificationName.size();
     }
 
     //View holder
@@ -50,8 +50,8 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
             this.recyclerRowBinding = recyclerRowBinding;
         }
         //Bind object to recycler view
-        public void bindView(String diseaseName){
-            recyclerRowBinding.notificationTextView.setText(diseaseName);
+        public void bindView(String notificationName){
+            recyclerRowBinding.notificationTextView.setText(notificationName);
         }
 
     }

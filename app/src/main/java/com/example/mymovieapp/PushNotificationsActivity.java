@@ -1,8 +1,11 @@
 package com.example.mymovieapp;
 
+import static android.content.ContentValues.TAG;
+
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 
 import com.example.mymovieapp.databinding.ActivityPushNotificationsBinding;
@@ -34,7 +37,7 @@ public class PushNotificationsActivity extends AppCompatActivity {
 
     private void initUpdateNotification() {
         List<String> notificationName = new ArrayList<>();
-
+        notificationName.add("Test");
         recyclerAdapter.updateNotificationName(notificationName);
     }
 
