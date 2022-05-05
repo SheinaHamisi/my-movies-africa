@@ -31,9 +31,10 @@ import com.google.firebase.messaging.RemoteMessage;
 public class MyFirebaseMessagingService extends FirebaseMessagingService {
 
     private ActivityPushNotificationsBinding activityPushNotificationsBinding;
+    private DBHandler dbHandler;
         FirebaseDatabase firebaseDatabase;
         DatabaseReference databaseReference;
-        NotificationModel notificationModel;
+        NotificationModal notificationModal;
 
 
 
@@ -47,8 +48,15 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
         final String CHANNEL_ID = "HEADS_UP_NOTIFICATION";
 
         firebaseDatabase = FirebaseDatabase.getInstance();
-        databaseReference = firebaseDatabase.getReference("Notification");
-        notificationModel = new NotificationModel();
+
+        //firebase db
+        databaseReference = firebaseDatabase.getReference("Notifications");
+        notificationModal = new NotificationModal(title, text);
+
+
+        dbHandler = new DBHandler(MyFirebaseMessagingService.this);
+        //add data to sqlite
+        dbHandler.addNewNotification(title,text);
 
 
         addDatatoFirebase(title, text);
@@ -68,14 +76,15 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
 
     }
 
+
     private void addDatatoFirebase(String title, String text) {
-        notificationModel.setTitle(title);
-        notificationModel.setText(text);
+        notificationModal.setTitle(title);
+        notificationModal.setText(text);
 
         databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                databaseReference.setValue(notificationModel);
+                databaseReference.child(title).setValue(notificationModal);
 
             }
 

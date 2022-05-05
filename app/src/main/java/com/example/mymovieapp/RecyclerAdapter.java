@@ -16,10 +16,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class RecyclerAdapter extends FirebaseRecyclerAdapter<
-        NotificationModel, RecyclerAdapter.notificationViewholder> {
+        NotificationModal, RecyclerAdapter.notificationViewholder> {
 
     public RecyclerAdapter(
-            @NonNull FirebaseRecyclerOptions<NotificationModel> options)
+            @NonNull FirebaseRecyclerOptions<NotificationModal> options)
     {
         super(options);
     }
@@ -28,7 +28,7 @@ public class RecyclerAdapter extends FirebaseRecyclerAdapter<
     @Override
     protected void
     onBindViewHolder(@NonNull notificationViewholder holder,
-                     int position, @NonNull NotificationModel model)
+                     int position, @NonNull NotificationModal model)
     {
 
         holder.title.setText(model.getTitle());
