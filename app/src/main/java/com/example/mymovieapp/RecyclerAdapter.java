@@ -16,54 +16,53 @@ import com.firebase.ui.database.FirebaseRecyclerOptions;
 import java.util.ArrayList;
 import java.util.List;
 
-public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHolder> {
+public class RecyclerAdapter extends FirebaseRecyclerAdapter<
+        NotificationModal, RecyclerAdapter.notificationViewholder> {
 
-    // variable for our array list and context
-    private ArrayList<NotificationModal> notificationModalArrayList;
-    private Context context;
-
-    // constructor
-    public RecyclerAdapter(ArrayList<NotificationModal> notificationModalArrayList, Context context) {
-        this.notificationModalArrayList = notificationModalArrayList;
-        this.context = context;
+    public RecyclerAdapter(
+            @NonNull FirebaseRecyclerOptions<NotificationModal> options)
+    {
+        super(options);
     }
 
+
+    @Override
+    protected void
+    onBindViewHolder(@NonNull notificationViewholder holder,
+                     int position, @NonNull NotificationModal model)
+    {
+
+        holder.title.setText(model.getTitle());
+
+        holder.text.setText(model.getText());
+
+    }
+
+    // Function to tell the class about the Card view (here
+    // "person.xml")in
+    // which the data will be shown
     @NonNull
     @Override
-    public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        // on below line we are inflating our layout
-        // file for our recycler view items.
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.recycler_row, parent, false);
-        return new ViewHolder(view);
-    }
-
-    @Override
-    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        // on below line we are setting data
-        // to our views of recycler view item.
-        NotificationModal modal = notificationModalArrayList.get(position);
-        holder.title.setText(modal.getTitle());
-        holder.text.setText(modal.getText());
-
-    }
-
-    @Override
-    public int getItemCount() {
-        // returning the size of our array list
-        return notificationModalArrayList.size();
+    public notificationViewholder
+    onCreateViewHolder(@NonNull ViewGroup parent,
+                       int viewType)
+    {
+        View view
+                = LayoutInflater.from(parent.getContext())
+                .inflate(R.layout.recycler_row, parent, false);
+        return new RecyclerAdapter.notificationViewholder(view);
     }
 
 
-
-    public class ViewHolder extends RecyclerView.ViewHolder {
-
-        // creating variables for our text views.
-        private TextView title, text;
-
-        public ViewHolder(@NonNull View itemView) {
+    class notificationViewholder
+            extends RecyclerView.ViewHolder {
+        TextView title, text;
+        public notificationViewholder(@NonNull View itemView)
+        {
             super(itemView);
-            // initializing our text views
-            title = itemView.findViewById(R.id.title);
+
+            title
+                    = itemView.findViewById(R.id.title);
             text = itemView.findViewById(R.id.text);
 
         }
