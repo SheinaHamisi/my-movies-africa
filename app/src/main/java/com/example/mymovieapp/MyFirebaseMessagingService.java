@@ -30,13 +30,10 @@ import com.google.firebase.messaging.RemoteMessage;
 
 public class MyFirebaseMessagingService extends FirebaseMessagingService {
 
-    private ActivityPushNotificationsBinding activityPushNotificationsBinding;
     private DBHandler dbHandler;
-        FirebaseDatabase firebaseDatabase;
-        DatabaseReference databaseReference;
-        NotificationModal notificationModal;
-
-
+    private FirebaseDatabase firebaseDatabase;
+    private DatabaseReference databaseReference;
+    private NotificationModal notificationModal;
 
     @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
@@ -50,13 +47,13 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
         firebaseDatabase = FirebaseDatabase.getInstance();
 
         //firebase db
-        databaseReference = firebaseDatabase.getReference("Notifications");
+        databaseReference = firebaseDatabase.getReference("Notification");
         notificationModal = new NotificationModal(title, text);
 
 
         dbHandler = new DBHandler(MyFirebaseMessagingService.this);
         //add data to sqlite
-        dbHandler.addNewNotification(title,text);
+        dbHandler.addNewNotification("title","text");
 
 
         addDatatoFirebase(title, text);
@@ -76,6 +73,17 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
 
     }
 
+    // Method to get the custom Design for the display of notification.
+    private RemoteViews getCustomDesign(String title, String text) {
+        RemoteViews remoteViews = new RemoteViews(
+                getApplicationContext().getPackageName(),
+                R.layout.notifications);
+        remoteViews.setTextViewText(R.id.title, title);
+        remoteViews.setTextViewText(R.id.text, text);
+        remoteViews.setImageViewResource(R.id.app_logo, R.drawable.mymovies);
+
+        return  remoteViews;
+    }
 
     private void addDatatoFirebase(String title, String text) {
         notificationModal.setTitle(title);
@@ -95,4 +103,5 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
         });
 
     }
+
 }

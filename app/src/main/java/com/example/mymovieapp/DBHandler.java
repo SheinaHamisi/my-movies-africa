@@ -40,9 +40,12 @@ public class DBHandler extends SQLiteOpenHelper {
     //Notification message column
     private static final String TEXT_COL = "text";
 
+    Context context;
+
     //Constructor
     public DBHandler(Context context){
         super(context, DB_NAME, null, DB_VERSION);
+        this.context = context;
 
     }
 
@@ -50,7 +53,7 @@ public class DBHandler extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
         String query = "CREATE TABLE " + TABLE_NAME + " (" + ID_COL + " INTEGER PRIMARY KEY AUTOINCREMENT, "
-                + TITLE_COL + " TITLE, " + TEXT_COL + "TEXT)";
+                + TITLE_COL + " TEXT, " + TEXT_COL + "TEXT)";
 
         sqLiteDatabase.execSQL(query);
 
