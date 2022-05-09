@@ -3,8 +3,12 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="app/src/main/res/drawable/abc.xml" value="0.2845" />
+        <entry key="app/src/main/res/drawable/circular_progress_bar.xml" value="0.2845" />
+        <entry key="app/src/main/res/layout/activity_loading_spinner1.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.23777173913043478" />
         <entry key="app/src/main/res/layout/activity_push_notifications.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/loading_spinner.xml" value="0.1" />
         <entry key="app/src/main/res/layout/notifications.xml" value="0.25" />
         <entry key="app/src/main/res/layout/recycler_row.xml" value="0.28177083333333336" />
         <entry key="app/src/main/res/layout/slider_item.xml" value="0.23777173913043478" />
