@@ -35,7 +35,7 @@ public class PushNotificationsActivity extends AppCompatActivity {
             View view = activityPushNotificationsBinding.getRoot();
             setContentView(view);
 
-            mbase = FirebaseDatabase.getInstance().getReference();
+            mbase = FirebaseDatabase.getInstance().getReference("Notification");
 
             recyclerView = findViewById(R.id.recyclerView);
 
